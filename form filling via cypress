@@ -1,0 +1,101 @@
+// Start of the test case named 'thoroughly filling an exhaustive submit form'
+it('thoroughly filling an exhaustive submit form', function() {
+    // Visit the website under test
+    cy.visit('https://trytestingthis.netlify.app/')
+  
+    // Fill in the username field with 'test'
+    cy.get('#uname').type('test')
+  
+    // Fill in the password field with 'test'
+    cy.get('#pwd').type('test')
+  
+    // Take a screenshot
+    cy.screenshot()
+  
+    // Click on the submit button
+    cy.get('[type="submit"]').click()
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Check if the 'h2' element contains the text 'Login Successful :)'
+    cy.get('h2').should('contain', 'Login Successful :)')
+  
+    // Click on a link within an 'h4' element
+    cy.get('h4 > a').click()
+  
+    // Fill in the 'fname' field with 'waqar'
+    cy.get('#fname').type('waqar')
+  
+    // Fill in the 'lname' field with 'ahmed'
+    cy.get('#lname').type('ahmed')
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Check and select the 'male' radio button
+    cy.get('#male').check().should('be.checked')
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Select an option from a dropdown with id 'option'
+    cy.get('#option').select('option 2').should('have.value', 'option 2')
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Click on options within a checkbox group with id 'owc'
+    cy.get('#owc > [value="option 1"]').click()
+    cy.get('#owc > [value="option 2"]').click()
+    cy.get('#owc > [value="option 3"]').click()
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Check a checkbox with the name 'option2'
+    cy.get('[name="option2"]').check()
+  
+    // Type into an input field with a 'datalists' attribute
+    cy.get('[list="datalists"]').type('Start typing and it will automatically guess the answer:')
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Fill in the 'day' input field with '2023-09-11'
+    cy.get('#day').type('2023-09-11')
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Set the value of an input field with id 'a' to '895'
+    cy.get('#a').invoke('val', 895)
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Attach a file with the id 'myfile'
+    cy.get('#myfile').attachFile('new.txt')
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Fill in the 'quantity' input field with '4'
+    cy.get('#quantity').type('4')
+  
+    // Wait for 1 second
+    cy.wait(1000)
+  
+    // Type into a textarea
+    cy.get('textarea').type('{selectall}{backspace}Remember to adjust the selectors and replace the random text generation logic with your own as needed for your specific use case.')
+  
+    // Wait for 1 second and take a screenshot
+    cy.wait(1000).screenshot()
+  
+    // Visit the 'youtube.com' website
+    cy.visit('https://www.youtube.com/')
+  
+    // Uncomment the line below if you want to interact with an element containing the text 'Submit' on the YouTube page
+    // cy.contains('Submit').click()
+  })
+  
